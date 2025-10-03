@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Installation
+export DEBIAN_FRONTEND=noninteractive
 
 KERNEL="linux-image-6.16.3+deb13-amd64"    
 LUKS="plymouth plymouth-themes"    
