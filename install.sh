@@ -26,7 +26,7 @@ apt install -y $KERNEL
 apt install -y $LUKS
 
 ## Display Manager
-apt install --no-install-recommends $DM
+apt install -y --no-install-recommends $DM
 
 ## wms & x 
 apt install -y $WM
