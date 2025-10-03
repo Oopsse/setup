@@ -12,9 +12,9 @@ UTILS="feh flameshot terminator openssh-client neovim git curl wget ca-certifica
 DISK="dolphin gvfs-fuse gvfs-backends ntfs-3g exfatprogs exfat-fuse dosfstools partitionmanager gdisk"    
     
 ## APT    
-echo 'deb http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee /etc/apt/sources.list    
-echo 'deb-src http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee /etc/apt/sources.list    
-echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/4/Debian_13/ /' | tee /etc/apt/sources.list.d/shells:fish:release:4.list         
+echo 'deb http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee -a /etc/apt/sources.list    
+echo 'deb-src http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee -a /etc/apt/sources.list    
+echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/4/Debian_13/ /' | tee -a /etc/apt/sources.list.d/shells:fish:release:4.list         
 curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:4/Debian_13/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/shells_fish_release_4.gpg > /dev/null         
 sudo apt update    
 
