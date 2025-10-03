@@ -1,23 +1,24 @@
 #!/bin/bash
 
 # Installation
+
 export DEBIAN_FRONTEND=noninteractive
 
-KERNEL="linux-image-6.16.3+deb13-amd64"    
-LUKS="plymouth plymouth-themes"    
-DM="sddm sddm-theme-breeze"    
-WM="xinit i3 xsecurelock"    
-SYSTEM="make file fish tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd"    
-NETWORK="blueman network-manager-applet"    
-UTILS="feh flameshot terminator openssh-client neovim git curl wget ca-certificates dnsutils resolvconf xclip ncdu x11-utils rofi make htop chromium firefox-esr-l10n-fr"    
-DISK="dolphin gvfs-fuse gvfs-backends ntfs-3g exfatprogs exfat-fuse dosfstools partitionmanager gdisk"    
-    
-## APT    
-echo 'deb http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee -a /etc/apt/sources.list    
-echo 'deb-src http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee -a /etc/apt/sources.list    
-echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/4/Debian_13/ /' | tee -a /etc/apt/sources.list.d/shells:fish:release:4.list         
-curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:4/Debian_13/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/shells_fish_release_4.gpg > /dev/null         
-sudo apt update    
+KERNEL="linux-image-6.16.3+deb13-amd64"
+LUKS="plymouth plymouth-themes"
+DM="sddm sddm-theme-breeze"
+WM="xinit i3 xsecurelock"
+SYSTEM="make file fish tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd"
+NETWORK="blueman network-manager-applet"
+UTILS="feh flameshot terminator openssh-client neovim git curl wget ca-certificates dnsutils resolvconf xclip ncdu x11-utils rofi make htop chromium firefox-esr-l10n-fr"
+DISK="dolphin gvfs-fuse gvfs-backends ntfs-3g exfatprogs exfat-fuse dosfstools partitionmanager gdisk"
+
+## APT
+echo 'deb http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee -a /etc/apt/sources.list
+echo 'deb-src http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee -a /etc/apt/sources.list
+echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/4/Debian_13/ /' | tee /etc/apt/sources.list.d/shells:fish:release:4.list
+curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:4/Debian_13/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/shells_fish_release_4.gpg > /dev/null
+sudo apt update
 
 ## Kernel
 apt install -y $KERNEL
@@ -26,7 +27,7 @@ apt install -y $KERNEL
 apt install -y $LUKS
 
 ## Display Manager
-apt install -y --no-install-recommends $DM
+apt install --no-install-recommends $DM
 
 ## wms & x 
 apt install -y $WM
@@ -54,6 +55,7 @@ sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*$/GRUB_CMDLINE_LINUX_DEFAULT="quiet splas
 update-grub
 ## SDDM
 wget "https://images2.alphacoders.com/117/1171867.png" -o "/usr/share/wallpapers/Next/contents/images/1.png"
+sed -i 's/background=.*$/background=\/usr\/share\/wallpapers\/Next\/contents\/images\/1.png/' /usr/share/sddm/themes/breeze/theme.conf
 chown root:root "/usr/share/wallpapers/Next/contents/images/1.png"
 chmod 644 "/usr/share/wallpapers/Next/contents/images/1.png"
 
