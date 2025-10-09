@@ -15,6 +15,7 @@ UTILS="feh flameshot terminator openssh-client neovim git curl wget ca-certifica
 DISK="dolphin gvfs-fuse gvfs-backends ntfs-3g exfatprogs exfat-fuse dosfstools partitionmanager gdisk"
 
 ## APT
+sed -i '/cdrom:/d' /etc/apt/sources.list
 echo 'deb http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee -a /etc/apt/sources.list
 echo 'deb-src http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee -a /etc/apt/sources.list
 apt update
