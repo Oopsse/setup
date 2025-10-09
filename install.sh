@@ -17,9 +17,7 @@ DISK="dolphin gvfs-fuse gvfs-backends ntfs-3g exfatprogs exfat-fuse dosfstools p
 ## APT
 echo 'deb http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee -a /etc/apt/sources.list
 echo 'deb-src http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee -a /etc/apt/sources.list
-echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/4/Debian_13/ /' | tee /etc/apt/sources.list.d/shells:fish:release:4.list
-curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:4/Debian_13/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/shells_fish_release_4.gpg > /dev/null
-sudo apt update
+apt update
 
 ## Kernel
 apt install -y $KERNEL
@@ -44,6 +42,10 @@ apt install -y $DISK
 
 ## Utilitaire
 apt install -y $UTILS
+
+## Fish
+echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/4/Debian_13/ /' | tee /etc/apt/sources.list.d/shells:fish:release:4.list
+curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:4/Debian_13/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/shells_fish_release_4.gpg > /dev/null
 
 # Configuration
 ## LUKS
