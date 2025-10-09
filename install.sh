@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Installation
-# sh -c "$(wget https://raw.githubusercontent.com/Oopsse/setup/master/install.sh -O -)"
+# sh -c "$(wget https://raw.githubusercontent.com/Oopsse/setup/main/install.sh -O -)"
 
 export DEBIAN_FRONTEND=noninteractive
 
@@ -27,7 +27,7 @@ apt install -y $KERNEL
 apt install -y $LUKS
 
 ## Display Manager
-apt install --no-install-recommends $DM
+apt install --no-install-recommends -y $DM
 
 ## wms & x 
 apt install -y $WM
