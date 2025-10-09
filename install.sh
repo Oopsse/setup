@@ -11,7 +11,7 @@ DM="sddm sddm-theme-breeze"
 WM="xinit i3 xsecurelock"
 SYSTEM="make file fish tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd"
 NETWORK="blueman network-manager-applet"
-UTILS="feh flameshot terminator openssh-client neovim git curl wget ca-certificates dnsutils resolvconf xclip ncdu x11-utils rofi make htop chromium firefox-esr-l10n-fr"
+UTILS="eog feh flameshot terminator openssh-client neovim git curl wget ca-certificates dnsutils resolvconf xclip ncdu x11-utils rofi make htop chromium firefox-esr-l10n-fr"
 DISK="dolphin gvfs-fuse gvfs-backends ntfs-3g exfatprogs exfat-fuse dosfstools partitionmanager gdisk"
 
 ## APT
