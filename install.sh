@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Installation
+# sh -c "$(wget https://raw.githubusercontent.com/Oopsse/setup/master/install.sh -O -)"
 
 export DEBIAN_FRONTEND=noninteractive
 
