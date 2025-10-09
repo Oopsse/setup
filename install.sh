@@ -75,7 +75,7 @@ sed -i 's/GRUB_TIMEOUT=.*$/GRUB_TIMEOUT=0/' /etc/default/grub
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*$/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/' /etc/default/grub
 update-grub
 ## SDDM
-wget "https://images2.alphacoders.com/117/1171867.png" -O "/usr/share/wallpapers/Next/contents/images/1.png"
+wget "https://images2.alphacoders.com/117/1171867.png" -O /usr/share/wallpapers/Next/contents/images/1.png
 sed -i 's/background=.*$/background=\/usr\/share\/wallpapers\/Next\/contents\/images\/1.png/' /usr/share/sddm/themes/breeze/theme.conf
 chown root:root "/usr/share/wallpapers/Next/contents/images/1.png"
 chmod 644 "/usr/share/wallpapers/Next/contents/images/1.png"
