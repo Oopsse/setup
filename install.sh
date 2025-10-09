@@ -84,7 +84,40 @@ usermod -aG docker e
 usermod -aG sudo e
 
 ### Xsecurelock
-## /etc/environment
+entries_db="/dev/shm/entries.json"
+output_dir="/home/e/Vidéos/apple-aerial"
+
+mkdir -p $output_dir
+wget --no-check-certificate "https://sylvan.apple.com/Aerials/resources.tar" -O "/dev/shm/resources.tar"
+tar -xf /dev/shm/resources.tar -C /dev/shm
+rm /dev/shm/resources.tar
+rm -rf /dev/shm/TVIdleScreenStrings.bundle
+
+download() {
+  url="$1"
+  quality="$2"
+  name=$(basename "$url")
+  mkdir -p "$output_dir"
+  output_file="$output_dir/$name"
+
+  if [ ! -f "$output_file" ]; then
+    echo "Downloading video in quality $quality from $url"
+    wget --no-check-certificate "$url" -O "$output_file"
+  fi
+}
+
+#quality="4K-HDR"
+#quality="4K-SDR"
+#quality="1080-SDR"
+quality="1080-HDR"
+
+for v in $(cat "$entries_db" | jq -r ".assets[] | .\"url-$quality\"" | shuf); do
+  download "$v" "$quality"
+done
+echo "Done!"
+exit 0
+chown -R e:e /home/e/Vidéo/apple-aerial
+
 cat <<EOF > /etc/environment
 XSECURELOCK_SAVER=saver_mpv
 XSECURELOCK_DISCARD_FIRST_KEYPRESS=0
