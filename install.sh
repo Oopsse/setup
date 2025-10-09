@@ -63,7 +63,7 @@ chown root:root /tmp/onlyoffice.gpg
 mv /tmp/onlyoffice.gpg /usr/share/keyrings/onlyoffice.gpg
 echo 'deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] https://download.onlyoffice.com/repo/debian squeeze main' | tee -a /etc/apt/sources.list.d/onlyoffice.list
 
-apt install -y fish docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin onlyoffice-desktopeditors
+apt update && apt install -y fish docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin onlyoffice-desktopeditors
 
 # Configuration
 ## LUKS
