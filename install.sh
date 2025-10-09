@@ -21,9 +21,6 @@ echo 'deb http://deb.debian.org/debian/ trixie-backports main non-free-firmware'
 echo 'deb-src http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee -a /etc/apt/sources.list
 apt update
 
-## Kernel
-apt install -y $KERNEL
-
 ## Luks
 apt install -y $LUKS
 
@@ -64,6 +61,9 @@ mv /tmp/onlyoffice.gpg /usr/share/keyrings/onlyoffice.gpg
 echo 'deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] https://download.onlyoffice.com/repo/debian squeeze main' | tee -a /etc/apt/sources.list.d/onlyoffice.list
 
 apt update && apt install -y fish docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin onlyoffice-desktopeditors
+
+## Kernel
+apt install -y $KERNEL
 
 # Configuration
 ## LUKS
