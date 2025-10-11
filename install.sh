@@ -8,12 +8,12 @@ export DEBIAN_FRONTEND=noninteractive
 KERNEL="linux-image-6.16.3+deb13-amd64"
 LUKS="plymouth plymouth-themes"
 DM="sddm sddm-theme-breeze"
-WM="xinit i3 xsecurelock"
+WM="xinit xorg xorg-dev xbacklight i3 xsecurelock libnotify-bin libnotify-dev"
 SYSTEM="build-essential linux-headers-$(uname -r) autorandr make gcc file fish tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd"
 NETWORK="blueman network-manager-applet"
 # ImageViewer BackgroundImage Snapshot Terminal TextEditor Browser VideoViewer PDFViewer
-UTILS="keepassxc-full okular qimgv feh flameshot terminator openssh-client neovim git jq curl wget ca-certificates dnsutils xclip ncdu x11-utils rofi make htop chromium firefox-esr-l10n-fr vlc python3 python3-pip pipx mpv"
-DISK="thunar thunar-volman thunar-archive-plugin thunar-vcs-plugin gvfs-fuse gvfs-backends ntfs-3g exfatprogs exfat-fuse dosfstools partitionmanager gdisk"
+UTILS="fonts-recommended fonts-font-awesome fonts-terminus keepassxc-full okular qimgv feh flameshot terminator openssh-client neovim git jq curl wget ca-certificates dnsutils xclip ncdu x11-utils rofi make htop chromium firefox-esr-l10n-fr vlc python3 python3-pip pipx mpv"
+DISK="thunar thunar-volman thunar-archive-plugin thunar-vcs-plugin gvfs-fuse gvfs-backends ntfs-3g exfatprogs exfat-fuse dosfstools partitionmanager gdisk unzip smbclient cifs-utils"
 
 ## APT
 sed -i '/cdrom:/d' /etc/apt/sources.list
