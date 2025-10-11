@@ -12,7 +12,7 @@ WM="xinit i3 xsecurelock"
 SYSTEM="build-essential linux-headers-$(uname -r) autorandr make gcc file fish tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd"
 NETWORK="blueman network-manager-applet"
 # ImageViewer BackgroundImage Snapshot Terminal TextEditor Browser VideoViewer PDFViewer
-UTILS="keepassxc-full okular qimgv feh flameshot terminator openssh-client neovim git jq curl wget ca-certificates dnsutils xclip ncdu x11-utils rofi make htop chromium firefox-esr-l10n-fr vlc python3 python3-pip pipx"
+UTILS="keepassxc-full okular qimgv feh flameshot terminator openssh-client neovim git jq curl wget ca-certificates dnsutils xclip ncdu x11-utils rofi make htop chromium firefox-esr-l10n-fr vlc python3 python3-pip pipx mpv"
 DISK="thunar thunar-volman thunar-archive-plugin thunar-vcs-plugin gvfs-fuse gvfs-backends ntfs-3g exfatprogs exfat-fuse dosfstools partitionmanager gdisk"
 
 ## APT
@@ -121,7 +121,7 @@ chown -R e:e /home/e/Vidéo/apple-aerial
 cat <<EOF > /etc/environment
 XSECURELOCK_SAVER=saver_mpv
 XSECURELOCK_DISCARD_FIRST_KEYPRESS=0
-XSECURELOCK_LIST_VIDEOS_COMMAND="find /home/unknown/Vidéos/apple-aerial/ -type f"
+XSECURELOCK_LIST_VIDEOS_COMMAND="find /home/e/Vidéos/apple-aerial/ -type f"
 XSECURELOCK_PASSWORD_PROMPT=kaomoji
 XSECURELOCK_SHOW_DATETIME=1
 EOF
