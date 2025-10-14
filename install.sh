@@ -114,8 +114,7 @@ quality="1080-HDR"
 for v in $(cat "$entries_db" | jq -r ".assets[] | .\"url-$quality\"" | shuf); do
   download "$v" "$quality"
 done
-echo "Done!"
-exit 0
+
 chown -R e:e /home/e/Vidéos/apple-aerial
 
 cat << EOF > /etc/environment
@@ -125,3 +124,6 @@ XSECURELOCK_LIST_VIDEOS_COMMAND="find /home/e/Vidéos/apple-aerial/ -type f"
 XSECURELOCK_PASSWORD_PROMPT=kaomoji
 XSECURELOCK_SHOW_DATETIME=1
 EOF
+
+echo "Done!"
+exit 0
