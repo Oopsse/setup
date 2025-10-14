@@ -116,7 +116,7 @@ for v in $(cat "$entries_db" | jq -r ".assets[] | .\"url-$quality\"" | shuf); do
 done
 echo "Done!"
 exit 0
-chown -R e:e /home/e/Vidéo/apple-aerial
+chown -R e:e /home/e/Vidéos/apple-aerial
 
 cat <<EOF > /etc/environment
 XSECURELOCK_SAVER=saver_mpv
