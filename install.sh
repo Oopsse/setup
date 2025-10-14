@@ -118,12 +118,10 @@ echo "Done!"
 exit 0
 chown -R e:e /home/e/Vidéos/apple-aerial
 
-cat <<EOF > /etc/environment
+cat << EOF > /etc/environment
 XSECURELOCK_SAVER=saver_mpv
 XSECURELOCK_DISCARD_FIRST_KEYPRESS=0
 XSECURELOCK_LIST_VIDEOS_COMMAND="find /home/e/Vidéos/apple-aerial/ -type f"
 XSECURELOCK_PASSWORD_PROMPT=kaomoji
 XSECURELOCK_SHOW_DATETIME=1
 EOF
-
-
