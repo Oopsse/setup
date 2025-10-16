@@ -9,7 +9,7 @@ KERNEL="linux-image-6.16.3+deb13-amd64"
 LUKS="plymouth plymouth-themes"
 DM="sddm sddm-theme-breeze"
 WM="xinit xorg xorg-dev xbacklight i3 xsecurelock libnotify-bin libnotify-dev"
-SYSTEM="build-essential linux-headers-$(uname -r) autorandr make gcc file fish tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd brightnessctl"
+SYSTEM="build-essential linux-headers-$(uname -r) autorandr make gcc file zsh tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd brightnessctl"
 NETWORK="blueman network-manager-applet"
 # ImageViewer BackgroundImage Snapshot Terminal TextEditor Browser VideoViewer PDFViewer
 UTILS="fonts-recommended fonts-font-awesome fonts-terminus keepassxc-full okular qimgv feh flameshot terminator openssh-client neovim git jq curl wget ca-certificates dnsutils xclip ncdu x11-utils rofi make htop chromium firefox-esr-l10n-fr vlc python3 python3-pip pipx mpv"
@@ -45,10 +45,6 @@ apt install -y $DISK
 ## Utilitaire
 apt install -y $UTILS
 
-## Fish
-echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/4/Debian_13/ /' | tee /etc/apt/sources.list.d/shells:fish:release:4.list
-curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:4/Debian_13/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/shells_fish_release_4.gpg > /dev/null
-
 ## Docker
 install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
@@ -63,17 +59,22 @@ chown root:root /tmp/onlyoffice.gpg
 mv /tmp/onlyoffice.gpg /usr/share/keyrings/onlyoffice.gpg
 echo 'deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] https://download.onlyoffice.com/repo/debian squeeze main' | tee -a /etc/apt/sources.list.d/onlyoffice.list
 
-apt update && apt install -y fish docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin onlyoffice-desktopeditors
+apt update && apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin onlyoffice-desktopeditors
+
+## Oh-My-Zsh
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
 # Configuration
 ## LUKS
 ### Configure /usr/share/plymouth/plymouthd.defaults to tribar and sudo update-initramfs -u
 sed -i 's/Theme=.*$/Theme=tribar/' /usr/share/plymouth/plymouthd.defaults
 update-initramfs -u
+
 ## Grub
 sed -i 's/GRUB_TIMEOUT=.*$/GRUB_TIMEOUT=0/' /etc/default/grub
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*$/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/' /etc/default/grub
 update-grub
+
 ## SDDM
 wget "https://images2.alphacoders.com/117/1171867.png" -O /usr/share/wallpapers/Next/contents/images/1.png
 sed -i 's/background=.*$/background=\/usr\/share\/wallpapers\/Next\/contents\/images\/1.png/' /usr/share/sddm/themes/breeze/theme.conf
@@ -82,6 +83,22 @@ chmod 644 "/usr/share/wallpapers/Next/contents/images/1.png"
 
 usermod -aG docker e
 usermod -aG sudo e
+
+## Zsh
+chsh -s $(which zsh) e
+
+## Configuration file
+mkdir -p /home/e/.config/terminator/
+mkdir -p /home/e/.config/i3/
+
+wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/terminator/config -O /home/e/.config/terminator/config
+wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/i3/config -O /home/e/.config/i3/config
+wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/i3/tray -O /home/e/.config/i3/tray
+wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/i3/i3-battery-popup -O /home/e/.config/i3/i3-battery-popup
+
+chmod u+x /home/e/.config/i3/tray
+chmod u+x /home/e/.config/i3/i3-battery-popup
+
 
 ### Xsecurelock
 entries_db="/dev/shm/entries.json"
@@ -124,6 +141,12 @@ XSECURELOCK_LIST_VIDEOS_COMMAND="find /home/e/Vidéos/apple-aerial/ -type f"
 XSECURELOCK_PASSWORD_PROMPT=kaomoji
 XSECURELOCK_SHOW_DATETIME=1
 EOF
+
+## Exegol
+su - e
+pipx ensurepath && exec $SHELL
+pipx install exegol
+exegol install
 
 echo "Done!"
 exit 0
