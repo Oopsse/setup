@@ -1,0 +1,14 @@
+#!/bin/bash
+
+pkill -f pasystray
+pkill -f blueman-applet
+pkill -f nm-applet
+pkill -f update-notifier
+ibus exit
+
+/usr/bin/pasystray & disown
+/usr/bin/blueman-applet & disown
+/usr/bin/nm-applet & disown
+#/usr/bin/update-notifier & disown
+#pasystray --notify=all & disown
+#nm-applet --indicator & disown
