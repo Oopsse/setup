@@ -95,6 +95,7 @@ wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/term
 wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/i3/config -O /home/e/.config/i3/config
 wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/i3/tray -O /home/e/.config/i3/tray
 wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/i3/i3-battery-popup -O /home/e/.config/i3/i3-battery-popup
+wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/i3/launcher.rasi -O /home/e/.config/i3/launcher.rasi
 
 chmod u+x /home/e/.config/i3/tray
 chmod u+x /home/e/.config/i3/i3-battery-popup
