@@ -102,8 +102,8 @@ chmod u+x /home/e/.config/i3/i3-battery-popup
 
 ## Font
 
-wget https://github.com/adi1090x/polybar-themes/raw/refs/heads/master/fonts/iosevka_nerd_font.ttf -O /usr/local/share/fonts/
-wget https://github.com/adi1090x/polybar-themes/raw/refs/heads/master/fonts/feather.ttf -O /usr/local/share/fonts/
+wget https://github.com/adi1090x/polybar-themes/raw/refs/heads/master/fonts/iosevka_nerd_font.ttf -O /usr/local/share/fonts/iosevka_nerd_font.ttf
+wget https://github.com/adi1090x/polybar-themes/raw/refs/heads/master/fonts/feather.ttf -O /usr/local/share/fonts/feather.ttf
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DejaVuSansMono.zip -O /dev/shm/DejaVuSansMono.zip
 unzip /dev/shm/DejaVuSansMono.zip -d /usr/local/share/fonts/DejaVuSansMono-font
 rm -rf /dev/shm/DejaVuSansMono.zip
