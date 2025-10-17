@@ -16,7 +16,13 @@ configuration {
     disable-history:                false;
 }
 
-@import "colors.rasi"
+* {
+  al:    #00000000;
+  bg:    #141C21FF;
+  ac:    #eceff4FF;
+  se:    #eceff426;
+  fg:    #FFFFFFFF;
+}
 
 window {
     transparency:                   "real";
