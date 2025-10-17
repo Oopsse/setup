@@ -166,6 +166,14 @@ exegol install
 wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.9.14/obsidian_1.9.14_amd64.deb -O /home/e/Téléchargements/obsidian_1.9.14_amd64.deb
 
 ## VMware
+#git clone https://github.com/Technogeezer50/vmware-host-modules.git
+#cd vmware-host-modules
+# Check out the latest commit to the workstation-17.6.4 branch
+#git checkout workstation-17.6.4
+# Now you can go ahead and make the modules
+make
+# If module compilation is successful, install the new modules
+#sudo make install
 
 
 echo "Done!"
