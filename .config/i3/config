@@ -212,7 +212,7 @@ bindsym $mod+t exec thunderbird
 bindsym $mod+k exec keepassxc
 bindsym $mod+l exec xsecurelock
 bindsym Control+$mod+F4 exec --no-startup-id systemctl poweroff -i, mode "default"
-bindsym $mod+d exec --no-startup-id rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/hack/scripts/rofi/launcher.rasi
+bindsym $mod+d exec --no-startup-id rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/i3/launcher.rasi
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
