@@ -90,6 +90,7 @@ chsh -s $(which zsh) e
 ## Configuration file
 mkdir -p /home/e/.config/terminator/
 mkdir -p /home/e/.config/i3/
+mkdir -p /home/e/.config/i3status/
 mkdir -p /home/e/.config/picom/
 
 wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/terminator/config -O /home/e/.config/terminator/config
@@ -100,6 +101,8 @@ wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/i3/l
 
 chmod u+x /home/e/.config/i3/tray
 chmod u+x /home/e/.config/i3/i3-battery-popup
+
+wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/i3status/config -O /home/e/.config/i3status/config
 
 wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/picom/config -O /home/e/.config/picom/config
 
