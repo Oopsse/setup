@@ -203,11 +203,11 @@ bindsym $mod+Return exec terminator
 bindsym $mod+f exec firefox-esr
 bindsym $mod+p exec librewolf
 bindsym $mod+b exec docker start burppro
-bindsym $mod+e exec nautilus
+bindsym $mod+e exec thunar
 bindsym $mod+v exec vlc
 bindsym $mod+m exec vmware
 bindsym $mod+s exec flameshot
-bindsym $mod+c exec brave-browser
+bindsym $mod+c exec chromium
 bindsym $mod+t exec thunderbird
 bindsym $mod+k exec keepassxc
 bindsym $mod+l exec xsecurelock
