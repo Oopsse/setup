@@ -29,7 +29,7 @@ exec --no-startup-id $HOME/.config/i3/i3-battery-popup
 exec --no-startup-id /usr/bin/xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
 exec --no-startup-id /usr/bin/autorandr --change
 exec --no-startup-id /usr/bin/xinput set-prop "DLL0945:00 04F3:311C Touchpad" "libinput Tapping Enabled" 1
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id /usr/bin/picom -b --config $HOME/.config/picom/config
 exec --no-startup-id /usr/bin/feh --bg-fill $HOME/Images/2.jpg
 
