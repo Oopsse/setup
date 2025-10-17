@@ -99,6 +99,10 @@ wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/i3/i
 chmod u+x /home/e/.config/i3/tray
 chmod u+x /home/e/.config/i3/i3-battery-popup
 
+## Font
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DejaVuSansMono.zip -O /dev/shm/DejaVuSansMono.zip
+unzip /dev/shm/DejaVuSansMono.zip -d /usr/local/share/fonts/DejaVuSansMono-font
+rm -rf /dev/shm/DejaVuSansMono.zip
 
 ### Xsecurelock
 entries_db="/dev/shm/entries.json"
@@ -124,9 +128,9 @@ download() {
 }
 
 #quality="4K-HDR"
-#quality="4K-SDR"
+quality="4K-SDR"
 #quality="1080-SDR"
-quality="1080-HDR"
+#quality="1080-HDR"
 
 for v in $(cat "$entries_db" | jq -r ".assets[] | .\"url-$quality\"" | shuf); do
   download "$v" "$quality"
