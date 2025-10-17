@@ -100,6 +100,10 @@ wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/i3/l
 chmod u+x /home/e/.config/i3/tray
 chmod u+x /home/e/.config/i3/i3-battery-popup
 
+wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/picom/config-O /home/e/.config/picom/config
+
+chown -R e:e /home/e/.config/
+
 ## Font
 
 wget https://github.com/adi1090x/polybar-themes/raw/refs/heads/master/fonts/iosevka_nerd_font.ttf -O /usr/local/share/fonts/iosevka_nerd_font.ttf
