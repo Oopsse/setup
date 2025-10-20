@@ -140,8 +140,8 @@ download() {
   fi
 }
 
-#quality="4K-HDR"
-quality="4K-SDR"
+quality="4K-HDR"
+#quality="4K-SDR"
 #quality="1080-SDR"
 #quality="1080-HDR"
 
@@ -167,6 +167,7 @@ exegol install
 
 ## Obsidian
 wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.9.14/obsidian_1.9.14_amd64.deb -O /home/e/Téléchargements/obsidian_1.9.14_amd64.deb
+dpkg -i /home/e/Téléchargements/obsidian_1.9.14_amd64.deb
 
 ## VMware
 #git clone https://github.com/Technogeezer50/vmware-host-modules.git
