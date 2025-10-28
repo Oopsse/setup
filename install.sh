@@ -9,7 +9,7 @@ KERNEL="linux-image-6.16.3+deb13-amd64"
 LUKS="plymouth plymouth-themes"
 DM="sddm sddm-theme-breeze"
 WM="xinit xinput xorg xorg-dev xbacklight i3 xsecurelock libnotify-bin libnotify-dev picom"
-SYSTEM="lxpolkit build-essential linux-headers-$(uname -r) autorandr make gcc file zsh tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi acpitool firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd brightnessctl pipewire-pulse"
+SYSTEM="fwupd lxpolkit build-essential linux-headers-$(uname -r) autorandr make gcc file zsh tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi acpitool firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd brightnessctl pipewire-pulse"
 NETWORK="blueman network-manager-applet"
 # ImageViewer BackgroundImage Snapshot Terminal TextEditor Browser VideoViewer PDFViewer
 UTILS="asciinema solaar fonts-recommended fonts-font-awesome fonts-terminus keepassxc-full okular qimgv feh flameshot terminator openssh-client neovim git jq curl wget ca-certificates dnsutils xclip ncdu x11-utils rofi make htop chromium firefox-esr-l10n-fr vlc python3 python3-pip pipx mpv"
@@ -164,6 +164,10 @@ su - e
 pipx ensurepath && exec $SHELL
 pipx install exegol
 exegol install
+
+## Zsh pluggin
+git clone https://github.com/zsh-users/zsh-autosuggestions.git /home/e/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /home/e/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 ## Obsidian
 wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.9.14/obsidian_1.9.14_amd64.deb -O /home/e/Téléchargements/obsidian_1.9.14_amd64.deb
