@@ -23,7 +23,7 @@ echo 'deb-src http://deb.debian.org/debian/ trixie-backports main non-free-firmw
 apt update
 
 ## Kernel
-apt install -y $KERNEL
+#apt install -y $KERNEL
 
 ## Luks
 apt install -y $LUKS
@@ -150,7 +150,7 @@ for v in $(cat "$entries_db" | jq -r ".assets[] | .\"url-$quality\"" | shuf); do
   download "$v" "$quality"
 done
 
-chown -R e:e /home/e/Vidéos/apple-aerial
+chown -R e:e /home/e/Vidéos/
 
 cat << EOF > /etc/environment
 XSECURELOCK_SAVER=saver_mpv
