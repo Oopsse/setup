@@ -12,7 +12,7 @@ WM="xinit xinput xorg xorg-dev xbacklight i3 xsecurelock libnotify-bin libnotify
 SYSTEM="fwupd lxpolkit build-essential linux-headers-$(uname -r) autorandr make gcc file zsh tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi acpitool firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd brightnessctl"
 NETWORK="blueman network-manager-applet"
 # ImageViewer BackgroundImage Snapshot Terminal TextEditor Browser VideoViewer PDFViewer
-SOUND="alsa-utils pipewire-pulse pavucontrol"
+SOUND="firmware-cirrus firmware-intel-sound alsa-utils pipewire-pulse pavucontrol"
 UTILS="asciinema solaar fonts-recommended fonts-font-awesome fonts-terminus keepassxc-full okular qimgv feh flameshot terminator openssh-client neovim git jq curl wget ca-certificates dnsutils xclip ncdu x11-utils rofi make htop chromium firefox-esr-l10n-fr vlc python3 python3-pip pipx mpv"
 DISK="thunar thunar-volman thunar-archive-plugin thunar-vcs-plugin gvfs-fuse gvfs-backends ntfs-3g exfatprogs exfat-fuse dosfstools partitionmanager gdisk unzip smbclient cifs-utils"
 
@@ -23,7 +23,7 @@ echo 'deb-src http://deb.debian.org/debian/ trixie-backports main non-free-firmw
 apt update
 
 ## Kernel
-#apt install -y $KERNEL
+apt install -y $KERNEL
 
 ## Luks
 apt install -y $LUKS
@@ -36,6 +36,9 @@ apt install -y $WM
 
 ## System
 apt install -y $SYSTEM
+
+## Sound
+apt install -y $SOUND
 
 ## Network
 apt install -y $NETWORK
@@ -77,16 +80,15 @@ sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*$/GRUB_CMDLINE_LINUX_DEFAULT="quiet splas
 update-grub
 
 ## SDDM
-wget "https://images2.alphacoders.com/117/1171867.png" -O /usr/share/wallpapers/Next/contents/images/1.png
+wget "https://unsplash.com/photos/M6XC789HLe8/download?ixid=M3wxMjA3fDB8MXxjb2xsZWN0aW9ufDF8MjUxNzE4MzN8fHx8fDJ8fDE3NjE4MTQyMTB8&force=true&w=2400" -O /usr/share/wallpapers/Next/contents/images/1.jpg
 sed -i 's/background=.*$/background=\/usr\/share\/wallpapers\/Next\/contents\/images\/1.png/' /usr/share/sddm/themes/breeze/theme.conf
-chown root:root "/usr/share/wallpapers/Next/contents/images/1.png"
-chmod 644 "/usr/share/wallpapers/Next/contents/images/1.png"
+chown root:root "/usr/share/wallpapers/Next/contents/images/1.jpg"
+chmod 644 "/usr/share/wallpapers/Next/contents/images/1.jpg"
+cp "/usr/share/wallpapers/Next/contents/images/1.jpg" /home/e/Images/1.jpg
 
 usermod -aG docker e
 usermod -aG sudo e
-
-## Zsh
-chsh -s $(which zsh) e
+usermod -s $(which zsh) e
 
 ## Configuration file
 mkdir -p /home/e/.config/terminator/
@@ -116,7 +118,6 @@ wget https://github.com/adi1090x/polybar-themes/raw/refs/heads/master/fonts/feat
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DejaVuSansMono.zip -O /dev/shm/DejaVuSansMono.zip
 unzip /dev/shm/DejaVuSansMono.zip -d /usr/local/share/fonts/DejaVuSansMono-font
 rm -rf /dev/shm/DejaVuSansMono.zip
-
 
 ### Xsecurelock
 entries_db="/dev/shm/entries.json"
@@ -160,12 +161,6 @@ XSECURELOCK_PASSWORD_PROMPT=kaomoji
 XSECURELOCK_SHOW_DATETIME=1
 EOF
 
-## Exegol
-su - e
-pipx ensurepath && exec $SHELL
-pipx install exegol
-exegol install
-
 ## Zsh pluggin
 git clone https://github.com/zsh-users/zsh-autosuggestions.git /home/e/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /home/e/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
@@ -173,6 +168,12 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /home/e/.oh-m
 ## Obsidian
 wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.9.14/obsidian_1.9.14_amd64.deb -O /home/e/Téléchargements/obsidian_1.9.14_amd64.deb
 dpkg -i /home/e/Téléchargements/obsidian_1.9.14_amd64.deb
+
+## Exegol
+su - e
+pipx ensurepath && exec $SHELL
+pipx install exegol
+exegol install
 
 ## VMware
 #git clone https://github.com/Technogeezer50/vmware-host-modules.git
@@ -183,7 +184,6 @@ dpkg -i /home/e/Téléchargements/obsidian_1.9.14_amd64.deb
 make
 # If module compilation is successful, install the new modules
 #sudo make install
-
 
 echo "Done!"
 exit 0
