@@ -9,7 +9,7 @@ KERNEL="linux-image-6.16.3+deb13-amd64 linux-headers-6.16.3+deb13-amd64"
 LUKS="plymouth plymouth-themes"
 DM="sddm sddm-theme-breeze qml-module-qtquick-layouts qml-module-qtgraphicaleffects qml-module-qtquick-controls2 libqt5svg5"
 WM="xinit xinput xorg xorg-dev xbacklight i3 xsecurelock libnotify-bin libnotify-dev picom"
-SYSTEM="fwupd lxpolkit build-essential linux-headers-$(uname -r) autorandr make gcc file zsh tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi acpitool firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd brightnessctl"
+SYSTEM="pkexec fwupd lxpolkit build-essential linux-headers-$(uname -r) autorandr make gcc file zsh tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi acpitool firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd brightnessctl"
 NETWORK="blueman network-manager-applet"
 # ImageViewer BackgroundImage Snapshot Terminal TextEditor Browser VideoViewer PDFViewer
 SOUND="firmware-cirrus firmware-intel-sound alsa-utils pipewire-pulse pavucontrol"
