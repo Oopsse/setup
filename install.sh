@@ -175,6 +175,9 @@ pipx ensurepath && exec $SHELL
 pipx install exegol
 exegol install
 
+## Set default program
+xdg-settings set default-web-browser firefox-esr.desktop
+
 ## VMware
 #git clone https://github.com/Technogeezer50/vmware-host-modules.git
 #cd vmware-host-modules
