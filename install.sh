@@ -7,7 +7,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 KERNEL="linux-image-6.16.3+deb13-amd64 linux-headers-6.16.3+deb13-amd64"
 LUKS="plymouth plymouth-themes"
-DM="sddm sddm-theme-breeze qml-module-qtquick-layouts qml-module-qtgraphicaleffects qml-module-qtquick-controls2 libqt5svg5"
+DM="sddm qml-module-qtquick-layouts qml-module-qtgraphicaleffects qml-module-qtquick-controls2 libqt5svg5"
 WM="xinit xinput xorg xorg-dev xbacklight i3 xsecurelock libnotify-bin libnotify-dev picom"
 SYSTEM="pkexec fwupd lxpolkit build-essential linux-headers-$(uname -r) autorandr make gcc file zsh tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi acpitool firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd brightnessctl"
 NETWORK="blueman network-manager-applet"
@@ -82,12 +82,11 @@ update-grub
 ## SDDM
 wget "https://gitlab.com/Matt.Jolly/sddm-eucalyptus-drop/-/archive/master/sddm-eucalyptus-drop-master.zip?ref_type=heads" -O /dev/shm/sddm-eucalyptus-drop-master.zip
 unzip /dev/shm/sddm-eucalyptus-drop-master.zip  -d /usr/share/sddm/themes
-
-wget "https://unsplash.com/photos/M6XC789HLe8/download?ixid=M3wxMjA3fDB8MXxjb2xsZWN0aW9ufDF8MjUxNzE4MzN8fHx8fDJ8fDE3NjE4MTQyMTB8&force=true&w=2400" -O /usr/share/wallpapers/Next/contents/images/1.jpg
-sed -i 's/background=.*$/background=\/usr\/share\/wallpapers\/Next\/contents\/images\/1.png/' /usr/share/sddm/themes/breeze/theme.conf
-chown root:root "/usr/share/wallpapers/Next/contents/images/1.jpg"
-chmod 644 "/usr/share/wallpapers/Next/contents/images/1.jpg"
-cp "/usr/share/wallpapers/Next/contents/images/1.jpg" /home/e/Images/1.jpg
+ln -sv /usr/share/sddm/themes/sddm-eucalyptus-drop-master /etc/alternatives/sddm-debian-theme
+wget "https://unsplash.com/photos/M6XC789HLe8/download?ixid=M3wxMjA3fDB8MXxjb2xsZWN0aW9ufDF8MjUxNzE4MzN8fHx8fDJ8fDE3NjE4MTQyMTB8&force=true&w=2400" -O /home/e/Images/1.jpg
+cp /home/e/Images/1.jpg /usr/share/sddm/themes/sddm-eucalyptus-drop-master/Backgrounds
+sed -i 's/ForceHideCompletePassword="false"/ForceHideCompletePassword="true"/g' /usr/share/sddm/themes/sddm-eucalyptus-drop-master/theme.conf
+sed -i 's/david-clode-seM6i8gJ7d0-unsplash.jpg/1.jpg/g' /usr/share/sddm/themes/sddm-eucalyptus-drop-master/theme.conf
 
 usermod -aG docker e
 usermod -aG sudo e
@@ -112,6 +111,7 @@ wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/i3st
 
 wget https://raw.githubusercontent.com/Oopsse/setup/refs/heads/main/.config/picom/config -O /home/e/.config/picom/config
 
+chown -R e:e /home/e/Images/
 chown -R e:e /home/e/.config/
 
 ## Font
@@ -183,14 +183,9 @@ exegol install
 xdg-settings set default-web-browser firefox-esr.desktop
 
 ## VMware
-#git clone https://github.com/Technogeezer50/vmware-host-modules.git
-#cd vmware-host-modules
-# Check out the latest commit to the workstation-17.6.4 branch
-#git checkout workstation-17.6.4
-# Now you can go ahead and make the modules
-make
-# If module compilation is successful, install the new modules
-#sudo make install
+# Download VMware Workstation Pro for Linux 25H2
+# Create an account and download https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware+Workstation+Pro
+# sudo ./VMware-Workstation-Full-17.5.2-23775571.x86_64.bundle
 
 echo "Done!"
 exit 0
