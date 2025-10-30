@@ -7,7 +7,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 KERNEL="linux-image-6.16.3+deb13-amd64"
 LUKS="plymouth plymouth-themes"
-DM="sddm sddm-theme-breeze"
+DM="sddm sddm-theme-breeze qml-module-qtquick-layouts qml-module-qtgraphicaleffects qml-module-qtquick-controls2 libqt5svg5"
 WM="xinit xinput xorg xorg-dev xbacklight i3 xsecurelock libnotify-bin libnotify-dev picom"
 SYSTEM="fwupd lxpolkit build-essential linux-headers-$(uname -r) autorandr make gcc file zsh tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi acpitool firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd brightnessctl"
 NETWORK="blueman network-manager-applet"
@@ -80,6 +80,9 @@ sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*$/GRUB_CMDLINE_LINUX_DEFAULT="quiet splas
 update-grub
 
 ## SDDM
+wget "https://gitlab.com/Matt.Jolly/sddm-eucalyptus-drop/-/archive/master/sddm-eucalyptus-drop-master.zip?ref_type=heads" -O /dev/shm/sddm-eucalyptus-drop-master.zip
+unzip /dev/shm/sddm-eucalyptus-drop-master.zip  -d /usr/share/sddm/themes
+
 wget "https://unsplash.com/photos/M6XC789HLe8/download?ixid=M3wxMjA3fDB8MXxjb2xsZWN0aW9ufDF8MjUxNzE4MzN8fHx8fDJ8fDE3NjE4MTQyMTB8&force=true&w=2400" -O /usr/share/wallpapers/Next/contents/images/1.jpg
 sed -i 's/background=.*$/background=\/usr\/share\/wallpapers\/Next\/contents\/images\/1.png/' /usr/share/sddm/themes/breeze/theme.conf
 chown root:root "/usr/share/wallpapers/Next/contents/images/1.jpg"
