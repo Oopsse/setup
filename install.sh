@@ -179,6 +179,9 @@ pipx ensurepath && exec $SHELL
 pipx install exegol
 exegol install
 
+## PX
+pipx install px-proxy
+
 ## Set default program
 xdg-settings set default-web-browser firefox-esr.desktop
 
