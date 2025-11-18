@@ -20,6 +20,11 @@ DISK="thunar thunar-volman thunar-archive-plugin thunar-vcs-plugin gvfs-fuse gvf
 sed -i '/cdrom:/d' /etc/apt/sources.list
 echo 'deb http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee -a /etc/apt/sources.list
 echo 'deb-src http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee -a /etc/apt/sources.list
+
+### Vagrant Key
+wget -O - https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?<=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list
+
 apt update
 
 ## Kernel
@@ -164,6 +169,7 @@ XSECURELOCK_PASSWORD_PROMPT=kaomoji
 XSECURELOCK_SHOW_DATETIME=1
 XSECURELOCK_COMPOSITE_OBSCURER=0
 EOF
+
 
 ## Zsh pluggin
 git clone https://github.com/zsh-users/zsh-autosuggestions.git /home/e/.oh-my-zsh/custom/plugins/zsh-autosuggestions
