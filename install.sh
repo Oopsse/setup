@@ -185,6 +185,9 @@ pipx ensurepath && exec $SHELL
 pipx install exegol
 exegol install
 
+## Vagrant pluggin
+vagrant plugin install vagrant-vmware-desktop
+
 ## PX
 pipx install px-proxy
 
