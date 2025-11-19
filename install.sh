@@ -187,9 +187,8 @@ exegol install
 
 ## Vagrant pluggin
 vagrant plugin install vagrant-vmware-desktop
-sudo mkdir -p /opt/vagrant-vmware-desktop/bin
-wget https://releases.hashicorp.com/vagrant-vmware-utility/1.0.21/vagrant-vmware-utility_1.0.21_linux_amd64.zip
-sudo unzip -d /opt/vagrant-vmware-desktop/bin vagrant-vmware-utility_1.0.21_linux_amd64.zip
+wget https://releases.hashicorp.com/vagrant-vmware-utility/1.0.24/vagrant-vmware-utility_1.0.24-1_amd64.deb -O vagrant-vmware-utility_1.0.24-1_amd64.deb
+sudo dpkg -i vagrant-vmware-utility_1.0.24-1_amd64.deb
 sudo /opt/vagrant-vmware-desktop/bin/vagrant-vmware-utility certificate generate
 sudo /opt/vagrant-vmware-desktop/bin/vagrant-vmware-utility service install
 # vagrant up --provider vmware_workstation
