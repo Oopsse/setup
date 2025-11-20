@@ -9,7 +9,7 @@ KERNEL="linux-image-6.16.3+deb13-amd64 linux-headers-6.16.3+deb13-amd64"
 LUKS="plymouth plymouth-themes"
 DM="sddm qml-module-qtquick-layouts qml-module-qtgraphicaleffects qml-module-qtquick-controls2 libqt5svg5"
 WM="xinit xinput xorg xorg-dev xbacklight i3 xsecurelock libnotify-bin libnotify-dev picom"
-SYSTEM="pkexec fwupd lxpolkit build-essential linux-headers-$(uname -r) autorandr make gcc file zsh tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi acpitool firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd brightnessctl"
+SYSTEM="qml6-module-qtquick-effects pkexec fwupd lxpolkit build-essential linux-headers-$(uname -r) autorandr make gcc file zsh tree pasystray arandr krb5-user sudo dunst libnotify-bin iotop usbutils inxi acpi acpitool firmware-linux-free lsb-release dbus dbus-x11 systemd-timesyncd brightnessctl"
 NETWORK="blueman network-manager-applet"
 # ImageViewer BackgroundImage Snapshot Terminal TextEditor Browser VideoViewer PDFViewer
 SOUND="firmware-cirrus firmware-intel-sound alsa-utils pipewire-pulse pavucontrol"
@@ -192,6 +192,9 @@ sudo dpkg -i vagrant-vmware-utility_1.0.24-1_amd64.deb
 sudo /opt/vagrant-vmware-desktop/bin/vagrant-vmware-utility certificate generate
 sudo /opt/vagrant-vmware-desktop/bin/vagrant-vmware-utility service install
 # vagrant up --provider vmware_workstation
+
+## SDDM
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
 
 ## PX
 pipx install px-proxy
