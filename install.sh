@@ -193,6 +193,7 @@ sudo dpkg -i vagrant-vmware-utility_1.0.24-1_amd64.deb
 sudo /opt/vagrant-vmware-desktop/bin/vagrant-vmware-utility certificate generate
 sudo /opt/vagrant-vmware-desktop/bin/vagrant-vmware-utility service install
 # vagrant up --provider vmware_workstation
+# BugFixedPatch !! https://github.com/hashicorp/vagrant-vmware-desktop/issues/91#issuecomment-1631463671 
 
 ## SDDM
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
