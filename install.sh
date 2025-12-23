@@ -24,7 +24,7 @@ SOUND="firmware-cirrus firmware-intel-sound alsa-utils pipewire-pulse pavucontro
 
 FONT="fonts-jetbrains-mono fonts-recommended fonts-font-awesome fonts-terminus fonts-dejavu-core fonts-dejavu-extra fonts-dejavu-mono"
 
-UTILS="sudo make gcc file zsh tree arandr dunst autorandr proxychains4 apg nmap asciinema solaar keepassxc-full okular qimgv feh flameshot terminator openssh-client neovim git jq curl wget ca-certificates dnsutils xclip ncdu x11-utils rofi make htop chromium firefox-esr-l10n-fr vlc python3 python3-pip pipx mpv"
+UTILS="zip sudo make gcc file zsh tree arandr dunst autorandr proxychains4 apg nmap asciinema solaar keepassxc-full okular qimgv feh flameshot terminator openssh-client neovim git jq curl wget ca-certificates dnsutils xclip ncdu x11-utils rofi make htop chromium firefox-esr-l10n-fr vlc python3 python3-pip pipx mpv"
 
 DISK="thunar thunar-volman thunar-archive-plugin thunar-vcs-plugin gvfs-fuse gvfs-backends ntfs-3g exfatprogs exfat-fuse dosfstools partitionmanager gdisk unzip smbclient cifs-utils"
 
