@@ -20,7 +20,7 @@ SYSTEM="pkexec fwupd lxpolkit build-essential linux-headers-$(uname -r) krb5-use
 NETWORK="blueman network-manager-applet"
 
 # ImageViewer BackgroundImage Snapshot Terminal TextEditor Browser VideoViewer PDFViewer
-SOUND="firmware-misc-nonfree firmware-cirrus firmware-intel-sound alsa-utils pipewire-pulse pavucontrol pasystray"
+SOUND="firmware-misc-nonfree firmware-realtek firmware-cirrus firmware-intel-sound alsa-utils pipewire-pulse pavucontrol pasystray"
 
 FONT="fonts-jetbrains-mono fonts-recommended fonts-font-awesome fonts-terminus fonts-dejavu-core fonts-dejavu-extra fonts-dejavu-mono"
 
