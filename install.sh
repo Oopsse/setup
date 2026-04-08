@@ -5,7 +5,7 @@
 
 export DEBIAN_FRONTEND=noninteractive
 
-KERNEL="linux-image-6.16.3+deb13-amd64 linux-headers-6.16.3+deb13-amd64"
+KERNEL="linux-image-6.19.10+deb13-amd64 linux-headers-6.19.10+deb13-amd64"
 
 LUKS="plymouth plymouth-themes"
 
