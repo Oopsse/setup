@@ -30,6 +30,11 @@ DISK="thunar thunar-volman thunar-archive-plugin thunar-vcs-plugin gvfs-fuse gvf
 
 ALL="$KERNEL $LUKS $SDDM $WM $SYSTEM $NETWORK $SOUND $FONT $UTILS $DISK"
 
+### Driver WiFi
+cd /lib/firmware
+wget https://web.git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/intel/iwlwifi/iwlwifi-bz-b0-fm-c0-100.ucode
+wget https://web.git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/intel/iwlwifi/iwlwifi-bz-b0-fm-c0-101.ucode
+
 ## APT
 sed -i '/cdrom:/d' /etc/apt/sources.list
 echo 'deb http://deb.debian.org/debian/ trixie-backports main non-free-firmware' | tee -a /etc/apt/sources.list
